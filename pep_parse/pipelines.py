@@ -40,4 +40,3 @@ class PepParsePipeline:
                     (TOTAL, sum(self.counts_statuses.values())),
                 ]
             )
-            file.truncate()
