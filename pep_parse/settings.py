@@ -19,7 +19,7 @@ STATUS_QUANTITY_TUPLE = ('Статус', 'Количество')
 TOTAL = 'Итого'
 
 FEEDS = {
-    '{dir_name}/pep_%(time)s.csv'.format(dir_name=RESULTS_DIR_NAME): {
+    f'{RESULTS_DIR_NAME}/pep_%(time)s.csv': {
         'format': 'csv',
         'fields': ['number', 'name', 'status'],
     },
