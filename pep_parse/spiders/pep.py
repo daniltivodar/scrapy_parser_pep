@@ -10,7 +10,10 @@ class PepSpider(scrapy.Spider):
 
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    start_urls = [
+        'https://{domain}/'.format(domain=domain)
+        for domain in allowed_domains
+    ]
 
     def parse(self, response):
         """Метод собирает ссылки на документы PEP."""
@@ -19,15 +22,12 @@ class PepSpider(scrapy.Spider):
 
     def parse_pep(self, response):
         """Метод парсит страницы документов PEP."""
-        text_match = re.search(
+        number, name = re.search(
             r'PEP (?P<number>\d*) – (?P<name>.*)',
             response.css('.page-title::text').get(),
-        )
-        number, name = text_match.groups()
+        ).groups()
         yield PepParseItem(
-            {
-                'number': number,
-                'name': name,
-                'status': response.css('abbr::text').get(),
-            }
+            number=number,
+            name=name,
+            status=response.css('abbr::text').get(),
         )
