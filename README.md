@@ -2,7 +2,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![Scrapy](https://img.shields.io/badge/Scrapy-2.5+-green.svg)](https://scrapy.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Производительный парсер для сбора и структурирования информации из документов PEP (Python Enhancement Proposal). Проект предназначен для автоматизации процесса сбора актуальных данных о всех спецификациях Python.
 
